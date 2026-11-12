@@ -276,7 +276,7 @@ Committed and pushed: Recorded and added project demonstration video for Feature
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+I was surprised when the starter code crashed due to race conditions during simultaneous updates to shared statistics. This taught me how dangerous unprotected read-modify-write operations are in multi-threaded programs. To fix this, I used ReentrantLock with try/finally blocks to enforce mutual exclusion and protect critical sections safely. Using a per-variable locking strategy helped me understand how independent locks improve parallelism and reduce contention. Furthermore, implementing counting semaphores allowed me to replace inefficient busy-waiting loops with controlled blocking waits. Overall, this project showed me that proper synchronization and clean shutdown handling are vital for creating reliable, deadlock-free systems.
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -284,7 +284,7 @@ Committed and pushed: Recorded and added project demonstration video for Feature
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+The most challenging part of this assignment was implementing the clean shutdown logic for the CPU threads using the counting semaphore. When I first replaced busy-waiting with acquireUninterruptibly(), the worker threads would get permanently blocked waiting for new processes after all tasks were completed. This created a deadlock because the threads remained asleep and never reached the loop's termination condition. It was difficult to figure out how to wake up all the blocked worker threads safely without causing errors or breaking the simulation. To solve this, I had to carefully add a release(totalCPUs) call right when the final process finished executing. Combining this wakeup signal with a clean check allowed all CPU threads to exit their loops properly
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -292,7 +292,7 @@ Committed and pushed: Recorded and added project demonstration video for Feature
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+To overcome these challenges, I started by carefully re-reading the assignment instructions, the README file, and the course lecture slides on synchronization. When debugging concurrency issues and thread deadlocks, I relied on adding strategic System.out.println statements to trace the execution flow and monitor thread states. This helped me clearly see when and where the worker threads were getting stuck or missing wake-up signals. I adopted an incremental approach, making small code adjustments and running the simulation multiple times after each change to verify its behavior. Whenever I encountered unexpected errors, I consulted Java documentation to better understand how classes like ReentrantLock and Semaphore function. By combining careful testing, methodical debugging, and conceptual review, I successfully resolved the issues and achieved a smooth, deadlock-free execution
 
 ## Question 4: Where can synchronization concepts be applied in real-world applications?
 
@@ -300,7 +300,7 @@ Committed and pushed: Recorded and added project demonstration video for Feature
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+Synchronization concepts are widely applied in real-world systems like banking applications and online seat-booking platforms. These systems handle multiple concurrent users accessing and modifying shared resources, much like our multi-threaded CPU scheduler. For instance, in a bank money transfer, the account balance is shared data, and updating it represents a critical section that must be protected by locks to prevent race conditions. Similarly, online ticketing systems use locking mechanisms to ensure two users do not book the same seat at the exact same time. Counting semaphores are also used in server request handlers or print queues to manage thread access and block extra tasks when resources are busy. Overall, these practical applications show that proper synchronization is essential to maintain data integrity and prevent concurrency bugs in software.
 
 ### Optional: What would you like to learn more about?
 
