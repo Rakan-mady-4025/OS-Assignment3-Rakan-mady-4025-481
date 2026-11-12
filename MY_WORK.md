@@ -32,11 +32,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | rakan khaled mady |
+| **Student ID** | 445052810 |
+| **University Email** | 445052810@std.psau.edu.sa |
+| **GitHub Username** |Rakan-mady-4025 |
+| **Repository Link** | https://github.com/Rakan-mady-4025/OS-Assignment3-Rakan-mady-4025-481.git |
  
 ---
 
@@ -131,17 +131,24 @@
 ---
 
 ## Your Development Log
-
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [November 11, 2026, 11:30 AM]
+**What I did**: Updated my student ID in the main configuration file and verified proper identification across the program.
 
 **Details**:
 
-**Challenges**:
+Located the student ID variable/line in the main class (where student identification is initialized).
 
-**Solution**:
+Replaced the placeholder ID with my actual university student ID (445052810).
 
-**Time spent**:
+Compiled and ran the project to ensure the ID is correctly printed and logged during execution.
+
+Committed and pushed: Updated student ID to 445052810
+
+**Challenges**: Locating the exact line where the student ID placeholder was defined in the starter files.
+
+**Solution**: Searched the main Java files for ID strings and successfully updated it on the designated configuration line.
+
+**Time spent**: 20 minutes
 
 ---
 
