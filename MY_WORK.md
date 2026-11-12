@@ -193,17 +193,24 @@ Committed and pushed: Implemented per-variable ReentrantLocks in SharedStats to 
 **Time spent**: 1 hour and 15 minutes
 
 ---
-
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 4 - [November 12, 2026, 6:15 PM]
+**What I did**: Implemented a counting semaphore in ReadyQueue and CpuWorker to eliminate busy-waiting and reduce CPU overhead.
 
 **Details**:
 
-**Challenges**:
+Declared a counting Semaphore in ReadyQueue initialized to 0 to manage process availability blocking waits.
 
-**Solution**:
+Updated ReadyQueue.add() to invoke semaphore.release() whenever a new process is added to the ready queue.
 
-**Time spent**:
+Replaced the inefficient polling loop, Thread.sleep(20), and busy-waiting overhead in CpuWorker.run() with a blocking wait via readyQueue.semaphore.acquireUninterruptibly().
+
+Committed and pushed: Implemented counting semaphore to eliminate busy-waiting and CPU overhead in CpuWorker
+
+Challenges: Ensuring the semaphore correctly blocks worker threads without wasting CPU cycles while preventing deadlocks.
+
+**Solution**: Used acquireUninterruptibly() to safely sleep threads until release() signals process availability, completely removing the polling loop and Thread.sleep overhead.
+
+**Time spent**: 1:45 hour
 
 ---
 
