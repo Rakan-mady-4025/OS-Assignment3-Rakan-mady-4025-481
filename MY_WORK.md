@@ -213,18 +213,24 @@ Challenges: Ensuring the semaphore correctly blocks worker threads without wasti
 **Time spent**: 1:45 hour
 
 ---
-
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 5 - [November 13, 2026, 6:30 PM]
+**What I did**: Recorded and finalized a demonstration video explaining the implementation of Features 2 and 3.
 
 **Details**:
 
-**Challenges**:
+Prepared a walkthrough script covering the thread synchronization mechanisms in SharedStats and the counting semaphore implementation in ReadyQueue and CpuWorker.
 
-**Solution**:
+Recorded the screen while running the program to prove that Busy-waiting polls = 0 and that all verification blocks passed successfully with checkmarks.
 
-**Time spent**:
+Saved and verified the video file format and duration as required by the assignment guidelines.
 
+Committed and pushed: Recorded and added project demonstration video for Features 2 and 3
+
+**Challenges**: Ensuring the explanation of the clean shutdown logic and semaphore release mechanism was concise and clear within the recording.
+
+**Solution**: Walked through the code step-by-step, highlighting the critical sections in CpuWorker.java and demonstrating the terminal output.
+
+**Time spent**: 45 minutes
 ---
 
 ### Entry 6 - [Optional - Date and Time]
