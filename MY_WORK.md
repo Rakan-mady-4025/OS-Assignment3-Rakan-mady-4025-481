@@ -250,13 +250,13 @@ Committed and pushed: Recorded and added project demonstration video for Feature
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: 10 hours
 
-**Most challenging part**:
+**Most challenging part**: was designing a thread-safe synchronization mechanism without introducing deadlocks or race conditions, particularly when transitioning from busy-waiting loops to a counting semaphore in CpuWorker and ReadyQueue. Ensuring that all CPU threads wake up correctly and exit cleanly when the final process completes required careful placement of the release() signals and termination conditions (break).
 
-**Most interesting learning**:
+**Most interesting learning**: The most interesting learning was experiencing firsthand how operating systems handle concurrency and synchronization using low-level primitives like ReentrantLock and Semaphore. Seeing how blocking waits completely eliminate CPU waste (bringing busy-waiting polls down to zero) compared to naive polling loops was a practical and eye-opening demonstration of theoretical OS concepts.
 
-**What I would do differently next time**:
+**What I would do differently next time**: Next time, I would write unit tests earlier in the development cycle to catch concurrency bugs and race conditions incrementally, rather than relying solely on full-program runtime execution. I would also plan the thread shutdown and cleanup logic from the very beginning to avoid dealing with potential deadlocks at the final stage.
 
 ---
 
