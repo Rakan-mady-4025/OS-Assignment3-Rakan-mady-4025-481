@@ -151,17 +151,24 @@ Committed and pushed: Updated student ID to 445052810
 **Time spent**: 20 minutes
 
 ---
-
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [November 12, 2026, 1:30 PM]
+**What I did**: Implemented thread synchronization in ReadyQueue by adding a dedicated ReentrantLock to protect critical queue operations.
 
 **Details**:
 
-**Challenges**:
+Declared a ReentrantLock inside ReadyQueue to manage concurrent access to the underlying queue structure.
 
-**Solution**:
+Wrapped critical methods such as add(), poll() methods within try-finally blocks to ensure safe thread access and prevent race conditions.
 
-**Time spent**:
+Verified that multiple CPU threads can safely add and remove processes simultaneously without corrupting the queue state.
+
+Committed and pushed: Added ReentrantLock to ReadyQueue for thread-safe process management
+
+**Challenges**: Ensuring that every exit point of the queue methods correctly unlocks the mutex to avoid deadlocks, especially when dealing with conditional checks.
+
+**Solution**: Utilized structured try-finally blocks ensuring lock.unlock() is always executed regardless of whether the operation succeeds or throws an exception.
+
+**Time spent**: 45 minutes
 
 ---
 
