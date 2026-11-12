@@ -171,17 +171,26 @@ Committed and pushed: Added ReentrantLock to ReadyQueue for thread-safe process 
 **Time spent**: 45 minutes
 
 ---
-
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [November 12, 2026, 4:00 PM]
+**What I did**: Implemented independent per-variable locks in SharedStats to protect shared statistics while maximizing concurrency and parallelism.
 
 **Details**:
 
-**Challenges**:
+Analyzed the race conditions affecting the shared variables (contextSwitchCount, completedProcessCount, and totalServiceTime) in SharedStats.java.
 
-**Solution**:
+Declared a dedicated ReentrantLock for each individual variable rather than using a single global lock.
 
-**Time spent**:
+Wrapped all critical update sections and getter methods within standard try-finally blocks to ensure locks are safely released even if exceptions occur.
+
+Documented and justified this design choice in MY_WORK.md, explaining how individual locks prevent unnecessary lock contention under high concurrency.
+
+Committed and pushed: Implemented per-variable ReentrantLocks in SharedStats to maximize parallelism
+
+**Challenges**: Weighing the trade-offs between using a single global lock versus individual locks, and ensuring that all read and write operations were properly synchronized.
+
+**Solution**: Chose individual locks because the statistics are completely independent, allowing multiple CPU threads to update different counters simultaneously without blocking each other.
+
+**Time spent**: 1 hour and 15 minutes
 
 ---
 
